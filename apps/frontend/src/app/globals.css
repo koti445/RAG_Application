@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --surface: #0f1117;
+    --surface-raised: #161922;
+    --surface-overlay: #1c2030;
+    --surface-border: #2a3042;
+    --surface-hover: #222838;
+    --accent: #f97316;
+    --accent-hover: #ea580c;
+    --content-primary: #f1f5f9;
+    --content-secondary: #94a3b8;
+    --content-muted: #64748b;
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--content-primary);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2a3042 transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #2a3042;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .enterprise-panel {
+    @apply rounded-lg border shadow-panel;
+    border-color: var(--surface-border);
+    background-color: var(--surface-raised);
+  }
+
+  .enterprise-input {
+    @apply w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1;
+    border-color: var(--surface-border);
+    background-color: var(--surface-overlay);
+    color: var(--content-primary);
+  }
+
+  .enterprise-input::placeholder {
+    color: var(--content-muted);
+  }
+
+  .enterprise-input:focus {
+    border-color: var(--accent);
+    --tw-ring-color: rgb(249 115 22 / 0.3);
+  }
+
+  .rag-create-section {
+    @apply mb-6 rounded-lg border p-5;
+    border-color: var(--surface-border);
+    background-color: var(--surface-raised);
+  }
+
+  .rag-create-section-title {
+    @apply mb-3 flex items-center gap-2 text-sm font-semibold;
+    color: var(--content-primary);
+  }
+
+  .rag-card-grid {
+    @apply grid gap-3 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .rag-select-card {
+    @apply flex flex-col items-start rounded-lg border p-4 text-left transition-all;
+    border-color: var(--surface-border);
+    background-color: var(--surface-overlay);
+  }
+
+  .rag-select-card:hover:not(:disabled) {
+    border-color: rgb(249 115 22 / 0.4);
+    background-color: var(--surface-hover);
+  }
+
+  .rag-select-card.selected {
+    border-color: var(--accent);
+    background-color: rgb(249 115 22 / 0.08);
+    box-shadow: 0 0 0 1px rgb(249 115 22 / 0.3);
+  }
+
+  .rag-select-card:disabled {
+    @apply cursor-not-allowed opacity-40;
+  }
+
+  .rag-slider {
+    @apply w-full accent-orange-500;
+  }
+
+  .rag-summary-box {
+    @apply rounded-lg border p-4;
+    border-color: rgb(249 115 22 / 0.25);
+    background-color: rgb(249 115 22 / 0.06);
+  }
+
+  .rag-info-box {
+    @apply mb-6 flex gap-2 rounded-lg border px-4 py-3 text-sm;
+    border-color: rgb(59 130 246 / 0.3);
+    background-color: rgb(59 130 246 / 0.08);
+    color: var(--content-secondary);
+  }
+}
